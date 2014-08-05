@@ -1,0 +1,1558 @@
+<?php
+
+session_start();
+
+
+
+  
+
+    include('admin/cargador.php');
+
+    
+
+    $objDb  = new connectionDb();
+
+    $objLog = new Login();
+
+    $objGal = new Gallery();
+
+    //we connected
+
+    $objDb->create_Connection();
+
+      
+
+
+
+
+
+//@rank=1 > Post // @rank=0 > Event
+
+$sql=mysql_query("SELECT @rank:=0+1 as type,id,title,introduction,modified as M  from posts p UNION ALL SELECT @rank:=1+1 as type,id,title,introduction,modified as M from events as ev  ORDER BY M DESC");
+
+$banner=mysql_fetch_array($sql);
+
+
+
+?>
+
+
+
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+
+
+  <head>
+
+
+
+    <meta charset="utf-8">
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+
+    <title>GuruTattoo - San Jose - California</title>   
+
+
+
+       <!-- FAVICON -->
+
+
+
+    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon" >
+
+
+
+    <link href="css/bootstrap-styles.css" rel="stylesheet">
+
+
+
+        <link href="css/gallery.css" rel="stylesheet">
+
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+        <script type="text/javascript">
+
+        function onBodyLoad()
+        {       
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        function onDeviceReady()
+        {
+            // do your thing!
+            navigator.notification.alert("PhoneGap is working")
+        }
+
+        </script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+
+
+
+    </script>
+
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53d0cc927073b138"></script>
+    <script src="js/mapScript.js"></script>
+
+    <script src="js/bootstrapValidator.js"></script>
+
+    <script>
+
+    
+
+
+
+
+
+
+
+$(document).ready(function() {
+
+    $('#contact').bootstrapValidator();
+
+});
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+  <!-- slider JS files -->
+
+
+
+    
+
+
+
+    <script class="rs-file" src="js/jquery-1.8.3.min.js"></script>
+
+
+
+    <script class="rs-file" src="js/jquery.royalslider.min.js"></script>
+
+
+
+    <link href="css/royalslider.css" rel="stylesheet">
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+    <!-- syntax highlighter -->
+
+
+
+    <script src="js/highlight.pack.js"></script>
+
+
+
+    <script src="js/jquery-ui-1.8.22.custom.min.js"></script>
+
+
+
+    <script> hljs.initHighlightingOnLoad();</script>
+
+
+
+    <script src="js/hide_show.js"></script>
+
+
+
+
+
+
+
+<script language="JavaScript">
+
+
+
+function fqs1(id){
+
+
+
+if (document.getElementById){ //se obtiene el id
+
+
+
+var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
+
+
+
+el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+
+
+
+}
+
+
+
+}
+
+
+
+window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+
+
+
+fqs1('fqs1_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+
+
+
+}
+
+
+
+function fqs2(id){
+
+
+
+if (document.getElementById){ //se obtiene el id
+
+
+
+var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
+
+
+
+el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+
+
+
+}
+
+
+
+}
+
+
+
+window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+
+
+
+fqs2('fqs2_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+
+
+
+}
+
+
+
+</script>
+
+
+
+    
+
+
+
+
+
+
+
+    <!-- preview-related stylesheets -->
+
+
+
+    <link href="css/reset.css" rel="stylesheet">
+
+
+
+    <link href="css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet">
+
+
+
+    <link href="css/github.css" rel="stylesheet">
+
+
+
+
+
+
+
+    <!-- slider stylesheets -->
+
+
+
+    
+
+
+
+     
+
+
+
+        <link class="rs-file" href="css/rs-default.css" rel="stylesheet">
+
+
+
+    
+
+
+
+<link rel="stylesheet" href="css/styles-mgs.css">
+
+
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:300,800,900,700,600,500,400,200,100' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+  </head>
+
+
+
+  <body id="home" onload="onBodyLoad()"> <!-- Para indentificar en que pagina estamos -->
+
+
+
+
+
+
+
+ <section class="container">
+
+
+
+     <div class="content row">
+
+
+
+     
+
+
+
+<nav class="navbar navbar-home " role="navigation">
+
+
+
+  <div class=" col-lg-12 ">
+
+
+
+<div class=" logotam">
+
+
+
+        <section id="branding">
+
+
+
+	     <a href="index.php"> <img class="img-responsive hidden-logo" src="images/logo_guru03.png" alt="Logo">
+
+
+
+         </a>
+
+
+
+	</section>
+
+
+
+ </div> 
+
+
+
+ </div>	
+
+
+
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+
+
+
+       para mostrarlos mejor en los dispositivos móviles -->
+
+
+
+  <div class="navbar-header col-lg-1 ">
+
+
+
+    <button type="button" class="displaybottom navbar-toggle"  data-toggle="collapse"
+
+
+
+            data-target=".navbar-ex1-collapse">
+
+
+
+      <span class="sr-only">Desplegar navegación</span>
+
+
+
+      <span class="icon-bar"></span>
+
+
+
+      <span class="icon-bar"></span>
+
+
+
+      <span class="icon-bar"></span>
+
+
+
+    </button>  
+
+
+
+  </div> 
+
+
+
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+
+
+
+       otro elemento que se pueda ocultar al minimizar la barra -->
+
+
+
+ 
+
+
+
+
+
+
+
+  <div class=" col-lg-12 collapse navbar-collapse navbar-ex1-collapse center ">
+
+
+
+
+
+
+
+    <ul class="nav navbar-nav navbar-left">
+
+
+
+      <li><a href="blog.php">OUR BLOG</a></li>
+
+
+
+      <li><a href="#gallery">GALLERY</a></li>
+
+
+
+      <li class="visible-lg visible-md"><a href=""><img style="margin-top: -90px"  width="216" height="300" src="images/logo_guru.png" alt=""></a> </li>
+
+
+
+      <li><a href="#shop">SHOP</a></li>
+
+
+
+      <li><a href="#contact">CONTACT US</a></li>     
+
+
+
+     
+
+
+
+    </ul>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+      
+
+
+
+   </section>      
+
+
+
+ <section class="container">
+
+
+
+     <div class="content row">
+
+
+
+  <div class="col-lg-12 backred">
+
+
+
+  <div class="col-lg-10 text-right">
+
+
+
+  <h2>2375 S Bascom Ave / San Jose, CA / 408.377.GURU <span>(4878)</span></h2>
+
+
+
+  </div>
+
+
+
+
+
+
+
+    <div class="social_index text-right col-lg-2"> <a href="http://instagram.com/sj_gurutattoo"><img src="images/instagram.png" width="30" height="30" alt=""></a> <a href="https://www.facebook.com/pages/Guru-Tattoo/122894147762522?fref=ts"> <img src="images/facebook.png"  width="30" height="30" alt=""></a> </div>
+
+
+
+    <a href=""></a></div>
+
+
+
+  </div>
+
+
+
+     
+
+
+
+         </section> 
+
+
+
+         <section class="container">
+
+
+
+     <div class="content row">
+
+
+
+  <div class="col-lg-12 text-center margin-50">
+
+  <?php 
+
+  $mysql=mysql_query("SELECT DISTINCT p.id as id ,p.introduction as introduction,p.title as title ,p.modified as modified,pg.photo as photo,pg.desc_es  as desc_es from posts as p inner join  posts_gallery as pg on p.id=pg.post_id group by p.id  order by modified DESC LIMIT 1");
+
+  $banner=mysql_fetch_array($mysql);
+
+  $postId=$banner['id'];
+
+  echo '<a href="post.php?id='.$postId.'"><img src="images/gallery-post/'.$banner['photo'].'"  alt="'.$banner['desc_es'].'"class="imghome"></a>';
+
+  ?>
+
+    
+
+
+
+    <div class="banner_index_content">
+
+
+
+					<h1><?php echo '<a href="post.php?id='.$postId.'">"'.$banner['title'].'"</a>'; ?></h1>
+
+
+
+					<p><?php echo $banner['introduction']; ?></p>
+
+           <?php        
+
+       
+
+            echo '<a href="post.php?id='.$postId.'"><span class="viewmore center-block">MORE <img src="images/view.png" align="middle" height="15" width="10"></span></a>';         
+
+
+
+          ?>
+
+
+
+
+
+				</div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+     
+
+
+
+         </section> 
+
+
+
+         
+
+
+
+          <section class="container">
+
+
+
+     <div class="content row">
+
+
+
+  <div id="gallery" class="col-lg-12 back-gallery">
+
+
+
+   <h3> RECENT WORK</h3> 
+
+
+
+   
+
+
+
+    <div id="gallery-1" class="royalSlider rsDefault visibleNearby">   
+
+    <?php
+
+
+
+     $mysql=mysql_query("SELECT * from users_images");
+
+
+
+     while($users_images=mysql_fetch_array($mysql))
+
+     {
+
+       $userId=$users_images['user_id'];
+
+       $mysql2=mysql_query("SELECT * from users where id = '$userId'");
+
+       $CurrentUser=mysql_fetch_array($mysql2);
+
+       $username=$CurrentUser['name'];
+
+       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="images/gallery/zoom/'.$users_images['photo'].'"  ></a>';
+
+     }
+
+    
+
+
+
+    ?>
+
+    </div>
+
+ <br>  <p> <span><strong>By</strong></span> <a href="artist.php?userid=<?php echo $userId ; ?>" style="color:#FFF;"><?php echo $username ;?></a> </p> <br>  <br> 
+
+
+
+ 
+
+
+
+<div class="page wrapper">  
+
+
+
+ 
+
+
+
+
+
+
+
+  <!-- You don't need this part of code -->
+
+
+
+  <script>
+
+
+
+    jQuery(document).ready(function($) {
+
+
+
+      // DO NOT INCLUDE THIS CODE IN YOUR BUILD, it's for tabs on this page
+
+
+
+        var code = $('#html-code code');
+
+
+
+        if(code.is(':empty')) {
+
+
+
+          var rsCode = $('.royalSlider-preview');
+
+
+
+          if(!rsCode.length) {
+
+
+
+              rsCode = $('.royalSlider');
+
+
+
+          }
+
+
+
+          rsCode = rsCode.clone().removeClass('royalSlider-preview').wrap('<div></div>').parent().html();
+
+
+
+          rsCode = htmlencode(rsCode);
+
+
+
+          code.html(rsCode);
+
+
+
+        }
+
+
+
+        $('#js code').html( htmlencode($('#addJS').html()) );
+
+
+
+
+
+
+
+        var filesHTML = '';
+
+
+
+        $('.rs-file').each(function() {
+
+
+
+          var item = $(this).removeAttr('class');
+
+
+
+          if(item.is('script')) {
+
+
+
+            filesHTML += '<script src="' + item.attr('src') + '" />';
+
+
+
+          } else {
+
+
+
+            filesHTML += $('<div>').append( $(this).clone().removeAttr('class') ).html();
+
+
+
+          }
+
+
+
+          filesHTML += "\n";
+
+
+
+        });
+
+
+
+        $('#files code').html( htmlencode( filesHTML ) );
+
+
+
+        $( ".tabs" ).tabs();
+
+
+
+    });
+
+
+
+    function htmlencode(str) {
+
+
+
+      if(str) {
+
+
+
+         return str.replace(/[&<>"']/g, function($0) {
+
+
+
+            return "&" + {"&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39"}[$0] + ";";
+
+
+
+        });
+
+
+
+      }
+
+
+
+    }   
+
+
+
+  </script>
+
+
+
+  <!-- tabs & footer end /// --> 
+
+
+
+   
+
+
+
+  
+
+
+
+    <script id="addJS">// Important note! If you're adding CSS3 transition to slides, fadeInLoadedSlide should be disabled to avoid fade-conflicts.
+
+
+
+jQuery(document).ready(function($) {
+
+
+
+  var si = $('#gallery-1').royalSlider({
+
+
+
+    addActiveClass: true,
+
+
+
+    arrowsNav: false,
+
+
+
+    controlNavigation: 'none',
+
+
+
+    autoScaleSlider: true, 
+
+
+
+    autoScaleSliderWidth: 960,     
+
+
+
+    autoScaleSliderHeight: 400,
+
+
+
+    loop: true,
+
+
+
+    fadeinLoadedSlide: false,
+
+
+
+    globalCaption: true,
+
+
+
+    keyboardNavEnabled: true,
+
+
+
+    globalCaptionInside: false,
+
+
+
+
+
+
+
+    visibleNearby: {
+
+
+
+      enabled: true,
+
+
+
+      centerArea: 0.5,
+
+
+
+      center: true,
+
+
+
+      breakpoint: 650,
+
+
+
+      breakpointCenterArea: 0.64,
+
+
+
+      navigateByCenterClick: true
+
+
+
+    }
+
+
+
+  }).data('royalSlider');
+
+
+
+
+
+
+
+  // link to fifth slide from slider description.
+
+
+
+  $('.slide4link').click(function(e) {
+
+
+
+    si.goTo(4);
+
+
+
+    return false;
+
+
+
+  });
+
+
+
+});
+
+
+
+</script>
+
+
+
+  
+
+
+
+  </div>
+
+
+
+    
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+     
+
+
+
+         </section> 
+
+
+
+          <section class="container">
+
+
+
+     <div class="content row">
+
+
+
+  <div id="shop" class="col-lg-12 back-shop">
+
+
+
+   <div class="col-lg-5"> <p>&nbsp;</p> <p>&nbsp;</p> <h4 class="hidden-shop">SHOP</h4> <p>Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. Do cred viral elit Tumblr bicycle rights. Seitan kogi Cosby sweater, sustainable XOXO lo-fi swag cupidatat</p> 
+
+
+
+   <p>&nbsp;</p>
+
+
+
+   <h5 style="text-align:right;">PRESENT</h5> 
+
+
+
+   <div class="descrip-shop">Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. Do cred viral elit Tumblr bicycle rights. Seitan kogi Cosby sweater, sustainable XOXO lo-fi swag cupidatat letterpress laborum id forage Austin jean shorts elit. Proident Blue Bottle wayfarers magna kogi. Nesciunt DIY four loko cardigan, pariatur meh ut. Hoodie pariatur vegan trust fund. Aliquip organic consectetur mumblecore, labore kitsch bicycle rights.</div>
+
+
+
+    </div>
+
+
+
+    <div class="col-lg-2  top-30  visible-lg">  
+
+
+
+    <h4>SHOP</h4> 
+
+
+
+    
+
+
+
+     <div class="imagen-shop">
+
+
+
+      <div style="color:#D23021;position:absolute; 
+
+
+
+	font-family: 'Raleway', sans-serif;
+
+
+
+	font-size: 15px; margin-left:70px; margin-top:35px;"><strong>2010</strong></div>
+
+
+
+    <div style="color:#D23021;position:absolute; 
+
+
+
+	font-family: 'Raleway', sans-serif;
+
+
+
+	font-size: 15px; margin-left:20px; margin-top:200px;"><strong>2014</strong></div>
+
+
+
+     <img src="images/back-shop.png" width="127" height="695">
+
+
+
+    	
+
+
+
+				
+
+
+
+     </div>
+
+
+
+    
+
+
+
+    </div>
+
+
+
+    <div class="col-lg-5 top-60 ">
+
+
+
+          <h5>PAST</h5>
+
+
+
+          <div class="descrip-shop"> Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. Do cred viral elit Tumblr bicycle rights. Seitan kogi Cosby sweater, sustainable XOXO lo-fi swag cupidatat
+
+
+
+            <p>&nbsp;</p>
+
+
+
+          </div>
+
+
+
+          <div class="faqs">FAQ’s
+
+
+
+            <ul>
+
+
+
+              <li><a href="javascript:void(0);" onClick="SINO('fqs1')">Question about if it hurts?</a>
+
+
+
+              <p id="fqs1" style="display:none;">Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p>
+
+
+
+              </li>
+
+
+
+              <li><a href="javascript:void(0);" onClick="SINO('fqs2')">Question about if it is free?</a> 
+
+
+
+              <p id="fqs2" style="display:none;" >Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p>
+
+
+
+              </li>
+
+
+
+              <li><a href="javascript:void(0);" onClick="SINO('fqs3')">Question about if it is eco friendly? </a> 
+
+
+
+              <p id="fqs3" style="display:none;" >Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p></li>
+
+
+
+              <li><a href="javascript:void(0);" onClick="SINO('fqs4')">Question about if it hurts? </a> 
+
+
+
+              <p id="fqs4" style="display:none;" >Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p></li>
+
+
+
+              <li><a href="javascript:void(0);" onClick="SINO('fqs5')">Question about if it is free? </a> 
+
+
+
+              <p id="fqs5" style="display:none;" >Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p></li>
+
+
+
+              <li style="border-bottom:#D23021 solid 1px;"><a href="javascript:void(0);" onClick="SINO('fqs6')">Question about if it is eco friendly? </a> 
+
+
+
+              <p id="fqs6" style="display:none;" >Content explaining the Promo, Gallery, News, Event int drinking vinegar sed pariatur labore. </p></li>
+
+
+
+            </ul>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+  </div>
+
+
+
+     
+
+
+
+         </section> 
+
+
+
+                <section class="hidden-xs container-instagram">
+
+
+
+
+
+
+
+  <div class="col-lg-12 back-instagram">
+
+
+
+   <h5>INSTAGRAM <br> <img src="images/line-2.png" width="3" height="44"></h5> 
+
+
+
+   
+
+
+
+     <div class="pleft-25"><iframe src="http://widget.stagram.com/in/sj_gurutattoo/?s=150&w=4&h=4&b=1&p=40" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%;  height: 190px;"  ></iframe>
+
+
+
+    </div>
+
+
+
+    <div class="inst"><iframe src="http://widget.stagram.com/in/sj_gurutattoo/?s=150&w=3&h=3&b=1&p=40" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%;  height: 190px;"  ></iframe>
+
+
+
+    </div>
+
+
+
+   </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</section> 
+
+
+
+         <section class="container">
+
+
+
+    <div class="contact row " >
+
+
+
+
+
+
+
+<h1>CONTACT US</h1>
+
+
+
+
+
+
+
+<div class="contactPadding">
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-6">
+
+
+
+	<h2>2375 S Bascom Ave, San Jose, CA</h2>
+
+
+
+	<div class="contact-left">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3174.6685972815367!2d-121.93215289999999!3d37.279285!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e34ee38c3a295%3A0xb9b310ad42131814!2s2375+S+Bascom+Ave%2C+Campbell%2C+CA+95008%2C+USA!5e0!3m2!1sen!2spa!4v1405352197174" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%;  height: 299px;"  ></iframe>
+
+
+
+
+
+  </div>
+
+
+
+<img  class="vertical-line visible-lg "  src="images/vertical-line.png" />
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-6">
+
+
+
+	
+
+
+
+  <h3>Online</h3>
+
+
+
+		<form role="form" id="contact" action="contact.php" class="registerForm">
+
+
+
+			<div class="form-group">		   
+
+
+
+			   <input type="text" class="form-control" id="nameInput" name="firstName" placeholder="First name" required />
+
+		  </div>
+
+
+
+		  	<div class="form-group">
+
+
+
+			  
+
+
+
+			    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Enter email" required>
+
+
+
+		 	</div>
+
+
+
+		 	<div class="form-group">			
+
+
+
+			    <input type="tel" name="phone" class="form-control" id="phoneInput" placeholder="Phone">
+
+
+
+		 	</div>
+
+
+
+		 	<textarea class="form-control" rows="4" placeholder="Suggestion / Critique / Shout-out" required></textarea>
+
+
+
+			<br>
+
+
+
+	    	<button type="submit" class="btn btn-danger">Send To Us</button>
+
+
+
+	    </form>
+
+
+
+
+
+
+
+</div>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+         </section> 
+
+
+
+         </section> 
+
+
+
+         <section class="container">
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+
+
+
+
+<!--FOOTER -->
+
+<?php include "footer.php" ?>
+
+<!-- end footer -->
+
+
+
+   </section>  <!-- container -->
+
+
+
+
+
+ </section> 
+
+
+
+    <!-- ARCHIVOS -->
+
+
+
+
+
+
+
+    <script src="js/myscript.js"></script>
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+  </body>
+
+
+
+</html>

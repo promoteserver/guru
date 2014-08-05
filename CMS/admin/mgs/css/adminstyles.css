@@ -1,0 +1,330 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#headeradmin
+{
+	height:110px;
+	width: 100%;
+	background: url(../images/fondo.jpg) repeat-x center bottom;
+
+	/*margin: 0 -10px 0 -15px;
+	left:0;*/
+}
+
+div.headeradmin-texto
+{
+	color: #BC2126;
+	padding: 20px 20px 0 0px;
+	font: bold 20px Arial, Helvetica, sans-serif;
+	text-align:right;
+	background: url(../images/logo.jpg) no-repeat ;
+	margin-left: 20px;
+}
+
+
+
+div.headeradmin-texto span
+{
+	color: #414141;
+	display: block;
+	font: bold 16px Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+div#main
+{
+	width: 800px;
+	margin: auto;
+}
+
+div.login-form
+{
+	width: 500px;
+	margin: 50px auto;
+}
+
+div.error-txt
+{
+	background-color: #BC2126;
+	height: 30px;
+	margin: 0 0 20px 0;
+}
+
+
+div.form-box-head
+{
+	width: 500px;
+	height: 50px;
+	background: url(../images/fondo.jpg) repeat-x center bottom;
+	text-align: center;
+	padding: 5px 0 0 0;
+	color: #4D4D4D;
+	font: bold 14px Arial, Helvetica, sans-serif;	
+}
+
+div.form-box
+{
+	width: 500px;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+div.form-box label
+{
+	display: block;
+	width: 200;	
+}
+
+.formInput
+{
+	width: 260px;
+	height: 30px;
+	border: solid 1px #4D4D4D;
+}
+
+.login
+{
+	padding: 5px;
+	background-color: #BC2126;
+	color: #FFF;
+	border: none !important;
+	font: bold 14px Arial, Helvetica, sans-serif;
+}
+
+.textlogin
+{
+
+	color: #4D4D4D;
+	font: normal 15px Arial, Helvetica, sans-serif;
+}
+
+div.form-foot
+{
+	height: 25px;
+	background-color: #e3e3e3;
+	width: 490px;
+	color: #9c7c7c;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding: 5px 0 0 10px;
+}
+
+div#interface
+{
+	width: 100%;
+	margin: 30px auto;
+}
+
+div.dashBoard
+{
+	width: 500px;
+	margin: auto;
+
+}
+
+div.btnAdm
+{
+	width: 80px;
+	height:80px;
+	text-align: center;
+	border: thin solid #959595;
+	margin: 5px;
+	float: left;
+	padding: 10px 0 0 0;
+	font: 11px Tahoma, Geneva, sans-serif;
+}
+
+div.btnAdm img
+{
+	padding: 0 0 5px 0;
+	border: none !important;
+}
+
+div.btnAdm a
+{
+	text-decoration: none;
+	color: #000;
+}
+
+div.btnAdm a:hover
+{
+	text-decoration: underline;
+}
+
+div.logoutadmin
+{
+	color: #4D4D4D;
+	float: right;
+	margin: 0 20px 0 0;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+div.logoutadmin a
+{
+	color: #4D4D4D;
+	text-decoration: none;
+}
+
+div.logoutadmin a:hover
+{
+	text-decoration: underline;
+	color: #BC2126;
+}
+
+div.dashBoard-admin
+{
+	width: 100%;
+	margin: auto;
+
+}
+
+.icons
+{
+	margin: 10px 0 0 0;
+	border: none !important;
+}
+
+.titulo
+{
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #BC2126;
+	padding-top: 20px;
+	padding-left: 20px;
+	
+
+	}
+	
+	.contenido
+{
+	width: 100%;
+	margin: auto;
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	padding-top: 20px;
+	}
+	
+		.contenido2
+{
+	width: 100%;
+	margin: auto;
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #4D4D4D;
+	padding-top: 50px;
+	}
+	
+		.linea
+{
+	width: 100%;
+	background-color: #808080;
+	height:3px;
+
+	}
+	
+	.espacio
+{
+	width: 100%;
+	background-color: #FFFFFF;
+	height:15px;
+
+
+
+
+	}
+	.linearoja
+{
+	width: 100%;
+	background-color: #BC2126;
+	height:1px;
+	margin-top:40px;
+	
+
+	}
+	
+	.botonagregar
+{
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color:#BC2126;
+	width: 105px; height:30px;
+	margin-top: 30px;
+	text-decoration:none;
+	margin-left:20px;
+
+	}
+	
+	.botones
+{
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	background-color:#BC2126;
+	text-decoration:none;
+	width: 100px;
+	height: 30px;
+	text-align:center;
+	border: solid 1px #BC2126; 
+
+
+
+
+
+
+	}
+	
+		.boton
+{
+	text-decoration:none;
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+
+	}
+	
+	.texto {
+
+	color:#333333;
+	font: normal 15px  Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding-left:20px;
+	padding-top: 15px;
+	float:left;
+	
+	}
+
+	.texto2 {
+
+	color:#333333;
+	font: normal 15px  Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding-left:20px;
+	padding-top: 15px;
+	float: right;
+	
+	}
+	
+	.textosub {
+	color:#333333;
+	font: normal 15px  Arial, Helvetica, sans-serif;
+
+}
+
+
+		.campformagrelong {
+			width: 600px;
+			height: 30px;
+			border: solid 1px #4D4D4D;
+	font: normal 12px  Arial, Helvetica, sans-serif;
+
+}
+
+.campformagreshort {
+			width: 120px;
+			height: 30px;
+			border: solid 1px #4D4D4D;
+	font: normal 12px  Arial, Helvetica, sans-serif;
+
+}
+
+.advertencias {
+	color:#000000;
+	font: normal 15px  Arial, Helvetica, sans-serif;
+	text-decoration:none;
+
+}
