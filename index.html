@@ -1,43 +1,3 @@
-<?php
-
-session_start();
-
-
-
-  
-
-    include('admin/cargador.php');
-
-    
-
-    $objDb  = new connectionDb();
-
-    $objLog = new Login();
-
-    $objGal = new Gallery();
-
-    //we connected
-
-    $objDb->create_Connection();
-
-      
-
-
-
-
-
-//@rank=1 > Post // @rank=0 > Event
-
-$sql=mysql_query("SELECT @rank:=0+1 as type,id,title,introduction,modified as M  from posts p UNION ALL SELECT @rank:=1+1 as type,id,title,introduction,modified as M from events as ev  ORDER BY M DESC");
-
-$banner=mysql_fetch_array($sql);
-
-
-
-?>
-
-
-
 <!DOCTYPE html>
 
 
@@ -90,12 +50,21 @@ $banner=mysql_fetch_array($sql);
 
         function onDeviceReady()
         {
-            // do your thing!
-            navigator.notification.alert("PhoneGap is working")
+			            
         }
 
         </script>
+	<!--  Aca van las llamadas a las partes de codigo php -->
+  <script>
+	$(document).ready(function(){
+	$("#cabecera-index").load("http://gurutattoo.net/php/cabecera-index.php");
+  $("#galeria").load("http://gurutattoo.net/php/gallery-1.php");
+  $("#banner-index").load("http://gurutattoo.net/php/banner-index.php");
+  $("#footer-include").load("http://gurutattoo.net/footer.php");
 
+	});
+
+	</script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
 
 
@@ -111,26 +80,11 @@ $banner=mysql_fetch_array($sql);
 
     <script>
 
-    
-
-
-
-
-
-
-
 $(document).ready(function() {
 
     $('#contact').bootstrapValidator();
 
 });
-
-
-
-
-
-
-
 </script>
 
 
@@ -343,8 +297,7 @@ fqs2('fqs2_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV *
 
   <body id="home" onload="onBodyLoad()"> <!-- Para indentificar en que pagina estamos -->
 
-
-
+<div id="cabecera-index"> </div>
 
 
 
@@ -589,49 +542,10 @@ fqs2('fqs2_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV *
 
 
 
-  <div class="col-lg-12 text-center margin-50">
+  <div id="banner-index" class="col-lg-12 text-center margin-50 ">
+    <!--- include banner-index -->
 
-  <?php 
-
-  $mysql=mysql_query("SELECT DISTINCT p.id as id ,p.introduction as introduction,p.title as title ,p.modified as modified,pg.photo as photo,pg.desc_es  as desc_es from posts as p inner join  posts_gallery as pg on p.id=pg.post_id group by p.id  order by modified DESC LIMIT 1");
-
-  $banner=mysql_fetch_array($mysql);
-
-  $postId=$banner['id'];
-
-  echo '<a href="post.php?id='.$postId.'"><img src="images/gallery-post/'.$banner['photo'].'"  alt="'.$banner['desc_es'].'"class="imghome"></a>';
-
-  ?>
-
-    
-
-
-
-    <div class="banner_index_content">
-
-
-
-					<h1><?php echo '<a href="post.php?id='.$postId.'">"'.$banner['title'].'"</a>'; ?></h1>
-
-
-
-					<p><?php echo $banner['introduction']; ?></p>
-
-           <?php        
-
-       
-
-            echo '<a href="post.php?id='.$postId.'"><span class="viewmore center-block">MORE <img src="images/view.png" align="middle" height="15" width="10"></span></a>';         
-
-
-
-          ?>
-
-
-
-
-
-				</div>
+ 
 
 
 
@@ -674,44 +588,10 @@ fqs2('fqs2_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV *
    
 
 
-
-    <div id="gallery-1" class="royalSlider rsDefault visibleNearby">   
-
-    <?php
-
-
-
-     $mysql=mysql_query("SELECT * from users_images");
-
-
-
-     while($users_images=mysql_fetch_array($mysql))
-
-     {
-
-       $userId=$users_images['user_id'];
-
-       $mysql2=mysql_query("SELECT * from users where id = '$userId'");
-
-       $CurrentUser=mysql_fetch_array($mysql2);
-
-       $username=$CurrentUser['name'];
-
-       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="images/gallery/zoom/'.$users_images['photo'].'"  ></a>';
-
-     }
-
-    
-
-
-
-    ?>
-
+    <div id="galeria">
+    <!-- Include de galery-1 -->
+  
     </div>
-
- <br>  <p> <span><strong>By</strong></span> <a href="artist.php?userid=<?php echo $userId ; ?>" style="color:#FFF;"><?php echo $username ;?></a> </p> <br>  <br> 
-
-
 
  
 
@@ -1401,7 +1281,7 @@ jQuery(document).ready(function($) {
 
 
 
-		<form role="form" id="contact" action="contact.php" class="registerForm">
+		<form role="form" id="contact" action="http://gurutatto.net/contact.php" class="registerForm">
 
 
 
@@ -1519,7 +1399,11 @@ jQuery(document).ready(function($) {
 
 <!--FOOTER -->
 
-<?php include "footer.php" ?>
+<div id="footer-include">
+  
+  <!--- Include footer -->
+
+</div>
 
 <!-- end footer -->
 

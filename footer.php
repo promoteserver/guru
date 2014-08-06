@@ -18,7 +18,7 @@
 
       <li><a href="blog.php">OUR BLOG</a></li>
 
-      <li class="m-right65"><a href="index.php?#gallery">GALLERY</a></li>
+      <li class="m-right65"><a href="index.html?#gallery">GALLERY</a></li>
 
        <li class=" visible-md visible-lg"> 
 
@@ -60,7 +60,7 @@
 
       </li>
 
-      <li class="m-left65"><a href="index.php?#shop">SHOP</a></li>
+      <li class="m-left65"><a href="index.html?#shop">SHOP</a></li>
 
       <li><a href="#contact">CONTACT US</a></li>
 

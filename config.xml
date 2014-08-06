@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.phonegap.example"
+    id        = "com.phonegap.guruphone"
     version   = "1.0.0">
 
-<name>PhoneGap Build Application</name>
+<name>Guru Phone</name>
 
 <description>
-A simple PhoneGap Build application.
-</description>
+GuruPhonegap V.20</description>
 
 <author href="https://example.com" email="you@example.com">
-Your Name
+FL
 </author>
 
 <preference name="phonegap-version" value="2.9.0" />

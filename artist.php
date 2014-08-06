@@ -290,7 +290,7 @@ $user=mysql_fetch_array($sql);
 
 
 
-       <a href="index.php"> <img class="img-responsive hidden-logo" src="images/logo_guru03.png" alt="Logo">
+       <a href="index.html"> <img class="img-responsive hidden-logo" src="images/logo_guru03.png" alt="Logo">
 
 
 
