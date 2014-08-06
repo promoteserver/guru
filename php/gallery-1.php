@@ -4,6 +4,15 @@
 
 
 
+  
+    include('admin/cargador.php');
+    
+    $objDb  = new connectionDb();
+    $objLog = new Login();
+    $objGal = new Gallery();
+    //we connected
+    $objDb->create_Connection();
+
      $mysql=mysql_query("SELECT * from users_images");
 
 

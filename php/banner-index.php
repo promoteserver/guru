@@ -1,4 +1,14 @@
  <?php 
+ session_start();
+
+  
+    include('admin/cargador.php');
+    
+    $objDb  = new connectionDb();
+    $objLog = new Login();
+    $objGal = new Gallery();
+    //we connected
+    $objDb->create_Connection();
 
   $mysql=mysql_query("SELECT DISTINCT p.id as id ,p.introduction as introduction,p.title as title ,p.modified as modified,pg.photo as photo,pg.desc_es  as desc_es from posts as p inner join  posts_gallery as pg on p.id=pg.post_id group by p.id  order by modified DESC LIMIT 1");
 
