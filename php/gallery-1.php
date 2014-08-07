@@ -69,7 +69,7 @@
 
        $username=$CurrentUser['name'];
 
-       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="images/gallery/zoom/'.$users_images['photo'].'"  ></a>';
+       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="http://gurutattoo.net/images/gallery/zoom/'.$users_images['photo'].'"  ></a>';
 
      }
 
