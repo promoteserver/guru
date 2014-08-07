@@ -16,7 +16,7 @@
 
   $postId=$banner['id'];
 
-  echo '<a href="post.php?id='.$postId.'"><img src="images/gallery-post/'.$banner['photo'].'"  alt="'.$banner['desc_es'].'"class="imghome"></a>';
+  echo '<a href="post.php?id='.$postId.'"><img src="gurutattoo.net/images/gallery-post/'.$banner['photo'].'"  alt="'.$banner['desc_es'].'"class="imghome"></a>';
 
   ?>
 
@@ -38,7 +38,7 @@
 
        
 
-            echo '<a href="post.php?id='.$postId.'"><span class="viewmore center-block">MORE <img src="images/view.png" align="middle" height="15" width="10"></span></a>';         
+            echo '<a href="post.php?id='.$postId.'"><span class="viewmore center-block">MORE <img src="gurutattoo.net/images/view.png" align="middle" height="15" width="10"></span></a>';         
 
 
 

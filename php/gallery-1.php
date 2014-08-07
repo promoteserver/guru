@@ -53,15 +53,15 @@
 
 
 
-     $mysql=mysql_query("SELECT * from users_images");
+     $mysql=mysql_query("SELECT * from users_gurutattoo.net/images");
 
 
 
-     while($users_images=mysql_fetch_array($mysql))
+     while($users_gurutattoo.net/images=mysql_fetch_array($mysql))
 
      {
 
-       $userId=$users_images['user_id'];
+       $userId=$users_gurutattoo.net/images['user_id'];
 
        $mysql2=mysql_query("SELECT * from users where id = '$userId'");
 
@@ -69,7 +69,7 @@
 
        $username=$CurrentUser['name'];
 
-       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="images/gallery/zoom/'.$users_images['photo'].'"  ></a>';
+       echo '<a  href="artist.php?userid='.$userId.'"><img class="rsImg" src="gurutattoo.net/images/gallery/zoom/'.$users_gurutattoo.net/images['photo'].'"  ></a>';
 
      }
 
