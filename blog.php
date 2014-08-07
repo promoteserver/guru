@@ -1,8 +1,7 @@
 <?php
-session_start();
 
 	
-	  include('admin/cargador.php');
+	  include('../admin/cargador.php');
 	  
 	  $objDb  = new connectionDb();
 	  $objLog = new Login();
