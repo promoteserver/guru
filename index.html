@@ -232,291 +232,7 @@ fqs2('fqs2_mostrar');/* "contenido_a_mostrar" es el nombre que le dimos al DIV *
 
 
 
-  <!-- You don't need this part of code -->
-
-
-
-  <script>
-
-
-
-    jQuery(document).ready(function($) {
-
-
-
-      // DO NOT INCLUDE THIS CODE IN YOUR BUILD, it's for tabs on this page
-
-
-
-        var code = $('#html-code code');
-
-
-
-        if(code.is(':empty')) {
-
-
-
-          var rsCode = $('.royalSlider-preview');
-
-
-
-          if(!rsCode.length) {
-
-
-
-              rsCode = $('.royalSlider');
-
-
-
-          }
-
-
-
-          rsCode = rsCode.clone().removeClass('royalSlider-preview').wrap('<div></div>').parent().html();
-
-
-
-          rsCode = htmlencode(rsCode);
-
-
-
-          code.html(rsCode);
-
-
-
-        }
-
-
-
-        $('#js code').html( htmlencode($('#addJS').html()) );
-
-
-
-
-
-
-
-        var filesHTML = '';
-
-
-
-        $('.rs-file').each(function() {
-
-
-
-          var item = $(this).removeAttr('class');
-
-
-
-          if(item.is('script')) {
-
-
-
-            filesHTML += '<script src="' + item.attr('src') + '" />';
-
-
-
-          } else {
-
-
-
-            filesHTML += $('<div>').append( $(this).clone().removeAttr('class') ).html();
-
-
-
-          }
-
-
-
-          filesHTML += "\n";
-
-
-
-        });
-
-
-
-        $('#files code').html( htmlencode( filesHTML ) );
-
-
-
-        $( ".tabs" ).tabs();
-
-
-
-    });
-
-
-
-    function htmlencode(str) {
-
-
-
-      if(str) {
-
-
-
-         return str.replace(/[&<>"']/g, function($0) {
-
-
-
-            return "&" + {"&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39"}[$0] + ";";
-
-
-
-        });
-
-
-
-      }
-
-
-
-    }   
-
-
-
-  </script>
-
-
-
-  <!-- tabs & footer end /// --> 
-
-
-
-   
-
-
-
   
-
-
-
-    <script id="addJS">// Important note! If you're adding CSS3 transition to slides, fadeInLoadedSlide should be disabled to avoid fade-conflicts.
-
-
-
-jQuery(document).ready(function($) {
-
-
-
-  var si = $('#gallery-1').royalSlider({
-
-
-
-    addActiveClass: true,
-
-
-
-    arrowsNav: false,
-
-
-
-    controlNavigation: 'none',
-
-
-
-    autoScaleSlider: true, 
-
-
-
-    autoScaleSliderWidth: 960,     
-
-
-
-    autoScaleSliderHeight: 400,
-
-
-
-    loop: true,
-
-
-
-    fadeinLoadedSlide: false,
-
-
-
-    globalCaption: true,
-
-
-
-    keyboardNavEnabled: true,
-
-
-
-    globalCaptionInside: false,
-
-
-
-
-
-
-
-    visibleNearby: {
-
-
-
-      enabled: true,
-
-
-
-      centerArea: 0.5,
-
-
-
-      center: true,
-
-
-
-      breakpoint: 650,
-
-
-
-      breakpointCenterArea: 0.64,
-
-
-
-      navigateByCenterClick: true
-
-
-
-    }
-
-
-
-  }).data('royalSlider');
-
-
-
-
-
-
-
-  // link to fifth slide from slider description.
-
-
-
-  $('.slide4link').click(function(e) {
-
-
-
-    si.goTo(4);
-
-
-
-    return false;
-
-
-
-  });
-
-
-
-});
-
-
-
-</script>
 
 
     
@@ -889,7 +605,291 @@ jQuery(document).ready(function($) {
 
 <div class="page wrapper">  
 
+<!-- You don't need this part of code -->
 
+
+
+  <script>
+
+
+
+    jQuery(document).ready(function($) {
+
+
+
+      // DO NOT INCLUDE THIS CODE IN YOUR BUILD, it's for tabs on this page
+
+
+
+        var code = $('#html-code code');
+
+
+
+        if(code.is(':empty')) {
+
+
+
+          var rsCode = $('.royalSlider-preview');
+
+
+
+          if(!rsCode.length) {
+
+
+
+              rsCode = $('.royalSlider');
+
+
+
+          }
+
+
+
+          rsCode = rsCode.clone().removeClass('royalSlider-preview').wrap('<div></div>').parent().html();
+
+
+
+          rsCode = htmlencode(rsCode);
+
+
+
+          code.html(rsCode);
+
+
+
+        }
+
+
+
+        $('#js code').html( htmlencode($('#addJS').html()) );
+
+
+
+
+
+
+
+        var filesHTML = '';
+
+
+
+        $('.rs-file').each(function() {
+
+
+
+          var item = $(this).removeAttr('class');
+
+
+
+          if(item.is('script')) {
+
+
+
+            filesHTML += '<script src="' + item.attr('src') + '" />';
+
+
+
+          } else {
+
+
+
+            filesHTML += $('<div>').append( $(this).clone().removeAttr('class') ).html();
+
+
+
+          }
+
+
+
+          filesHTML += "\n";
+
+
+
+        });
+
+
+
+        $('#files code').html( htmlencode( filesHTML ) );
+
+
+
+        $( ".tabs" ).tabs();
+
+
+
+    });
+
+
+
+    function htmlencode(str) {
+
+
+
+      if(str) {
+
+
+
+         return str.replace(/[&<>"']/g, function($0) {
+
+
+
+            return "&" + {"&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39"}[$0] + ";";
+
+
+
+        });
+
+
+
+      }
+
+
+
+    }   
+
+
+
+  </script>
+
+
+
+  <!-- tabs & footer end /// --> 
+
+
+
+   
+
+
+
+  
+
+
+
+    <script id="addJS">// Important note! If you're adding CSS3 transition to slides, fadeInLoadedSlide should be disabled to avoid fade-conflicts.
+
+
+
+jQuery(document).ready(function($) {
+
+
+
+  var si = $('#gallery-1').royalSlider({
+
+
+
+    addActiveClass: true,
+
+
+
+    arrowsNav: false,
+
+
+
+    controlNavigation: 'none',
+
+
+
+    autoScaleSlider: true, 
+
+
+
+    autoScaleSliderWidth: 960,     
+
+
+
+    autoScaleSliderHeight: 400,
+
+
+
+    loop: true,
+
+
+
+    fadeinLoadedSlide: false,
+
+
+
+    globalCaption: true,
+
+
+
+    keyboardNavEnabled: true,
+
+
+
+    globalCaptionInside: false,
+
+
+
+
+
+
+
+    visibleNearby: {
+
+
+
+      enabled: true,
+
+
+
+      centerArea: 0.5,
+
+
+
+      center: true,
+
+
+
+      breakpoint: 650,
+
+
+
+      breakpointCenterArea: 0.64,
+
+
+
+      navigateByCenterClick: true
+
+
+
+    }
+
+
+
+  }).data('royalSlider');
+
+
+
+
+
+
+
+  // link to fifth slide from slider description.
+
+
+
+  $('.slide4link').click(function(e) {
+
+
+
+    si.goTo(4);
+
+
+
+    return false;
+
+
+
+  });
+
+
+
+});
+
+
+
+</script>
 
 
   
