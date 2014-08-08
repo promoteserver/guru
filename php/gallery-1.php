@@ -22,6 +22,16 @@
 
 ?>
 
+   <h3> RECENT WORK</h3> 
+
+
+
+   
+
+
+
+    <div id="gallery-1" class="royalSlider rsDefault visibleNearby">   
+
     <?php
 
 
@@ -55,4 +65,3 @@
     </div>
 
  <br>  <p> <span><strong>By</strong></span> <a href="artist.php?userid=<?php echo $userId ; ?>" style="color:#FFF;"><?php echo $username ;?></a> </p> <br>  <br> 
-
